@@ -6,8 +6,8 @@ namespace LmycWebSite.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -42,16 +42,15 @@ namespace LmycWebSite.Models
     public class ForgotViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
     }
 
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -65,6 +64,10 @@ namespace LmycWebSite.Models
     public class RegisterViewModel
     {
         [Required]
+        [StringLength(25, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        public string UserName { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -75,18 +78,46 @@ namespace LmycWebSite.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
+        [Required]
+        public string FirstName { get; set;}
+
+        [Required]
+        public string LastName { get; set; }
+
+        [Required]
+        public string Street { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
+        [Required]
+        public string Province { get; set; }
+
+        [Required]
+        public string PostalCode { get; set; }
+
+        [Required]
+        public string Country { get; set; }
+
+        [Required]
+        public string MobileNumber { get; set; }
+
+        [Required]
+        public string SailingExperience { get; set; }
+
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+
     }
 
     public class ResetPasswordViewModel
     {
         [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -106,7 +137,7 @@ namespace LmycWebSite.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
     }
 }
