@@ -10,6 +10,7 @@ namespace LmycDataLib.Models.Boat
 {
     public class Boat
     {
+        [Key]
         public int BoatId { get; set; }
 
         [Display(Name = "Name")]
