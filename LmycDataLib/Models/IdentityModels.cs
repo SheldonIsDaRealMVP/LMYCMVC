@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using LmycDataLib.Models.Boat;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -9,7 +10,6 @@ namespace LmycWebSite.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -26,7 +26,7 @@ namespace LmycWebSite.Models
         {
         }
 
-        public DbSet<Boat> Boats {get; set;}
+        public DbSet<Boat> Boats { get; set; }
 
         public static ApplicationDbContext Create()
         {
