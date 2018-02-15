@@ -1,4 +1,4 @@
-﻿enable-migrations -ContextTypeName StudentContext -MigrationsDirectory Migrations\Students
+﻿enable-migrations -ContextTypeName LmycWebSite.Models.IdentityModels -MigrationsDirectory Migrations\Users
 
 add-migration -ConfigurationTypeName WebapiLab.Migrations.Students.Configuration "InitialCreate"
 
