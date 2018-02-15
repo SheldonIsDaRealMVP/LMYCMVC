@@ -19,6 +19,8 @@ namespace LmycWebSite.Models
         public string MobileNumber { get; set; }
         public string SailingExperience { get; set; }
 
+        public string Role { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

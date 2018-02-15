@@ -105,6 +105,9 @@ namespace LmycWebSite.Models
         [Required]
         public string SailingExperience { get; set; }
 
+
+        public string Role { get; set; } = "Member";
+
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
