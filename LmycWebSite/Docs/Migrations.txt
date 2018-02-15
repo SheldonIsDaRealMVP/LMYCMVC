@@ -1,0 +1,5 @@
+﻿enable-migrations -ContextTypeName StudentContext -MigrationsDirectory Migrations\Students
+
+add-migration -ConfigurationTypeName WebapiLab.Migrations.Students.Configuration "InitialCreate"
+
+update-database -ConfigurationTypeName WebapiLab.Migrations.Students.Configuration
