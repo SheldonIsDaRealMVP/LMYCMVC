@@ -11,25 +11,34 @@ namespace LmycWebSite.Migrations.Boats
                 "dbo.Boats",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        BoatId = c.Int(nullable: false),
+                        BoatId = c.Int(nullable: false, identity: true),
                         BoatName = c.String(),
                         Picture = c.String(),
                         LengthInFeet = c.Double(nullable: false),
                         Make = c.String(),
                         Year = c.Int(nullable: false),
                         RecordCreationDate = c.DateTime(nullable: false, storeType: "date"),
-                        CreatedBy_Id = c.String(maxLength: 128),
+                        CreatedBy = c.String(maxLength: 128),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.CreatedBy_Id)
-                .Index(t => t.CreatedBy_Id);
+                .PrimaryKey(t => t.BoatId)
+                .ForeignKey("dbo.AspNetUsers", t => t.CreatedBy)
+                .Index(t => t.CreatedBy);
             
             CreateTable(
                 "dbo.AspNetUsers",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        Firstname = c.String(),
+                        LastName = c.String(),
+                        Street = c.String(),
+                        City = c.String(),
+                        Province = c.String(),
+                        PostalCode = c.String(),
+                        Country = c.String(),
+                        MobileNumber = c.String(),
+                        SailingExperience = c.String(),
+                        Role = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -98,7 +107,7 @@ namespace LmycWebSite.Migrations.Boats
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Boats", "CreatedBy_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Boats", "CreatedBy", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
@@ -108,7 +117,7 @@ namespace LmycWebSite.Migrations.Boats
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.Boats", new[] { "CreatedBy_Id" });
+            DropIndex("dbo.Boats", new[] { "CreatedBy" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");

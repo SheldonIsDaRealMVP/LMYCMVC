@@ -28,7 +28,12 @@ namespace LmycDataLib.Models.Boat
         [Column(TypeName="Date")]
         public DateTime RecordCreationDate { get; set; }
 
-        public int Id { get; set; }
-        public ApplicationUser CreatedBy { get; set; }
+        [ForeignKey("User")]
+        [ScaffoldColumn(false)]
+        [Display (Name ="Created By")]
+        public string CreatedBy { get; set; }
+
+        [ScaffoldColumn(false)]
+        public ApplicationUser User { get; set; }
     }
 }

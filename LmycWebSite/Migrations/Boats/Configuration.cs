@@ -11,7 +11,6 @@ namespace LmycWebSite.Migrations.Boats
         {
             AutomaticMigrationsEnabled = false;
             MigrationsDirectory = @"Migrations\Boats";
-            ContextKey = "LmycWebSite.Models.ApplicationDbContext";
         }
 
         protected override void Seed(LmycWebSite.Models.ApplicationDbContext context)

@@ -13,7 +13,7 @@ namespace LmycWebSite.Migrations.Boats
         
         string IMigrationMetadata.Id
         {
-            get { return "201802081925380_InitialCreate"; }
+            get { return "201802152255059_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
