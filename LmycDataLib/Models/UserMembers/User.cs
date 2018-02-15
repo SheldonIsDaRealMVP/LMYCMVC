@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LmycDataLib.Models.Users
+namespace LmycDataLib.Models.UserMembers
 {
-    class Users: ApplicationDbContext
+    public class UserMembers: ApplicationUser
     {
         public string Firstname { get; set; }
         public string LastName { get; set; }

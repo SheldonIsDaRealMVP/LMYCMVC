@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using LmycDataLib.Models.UserMembers;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -151,7 +152,7 @@ namespace LmycWebSite.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser {
+                var user = new UserMembers {
                     UserName = model.UserName,
                     Email = model.Email,
                     Firstname = model.FirstName,
