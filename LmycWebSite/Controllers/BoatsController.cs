@@ -6,8 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using LmycDataLib.Models.Boat;
-using LmycWebSite.Models;
+using LmycDataLib.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace LmycWebSite.Controllers
 {
@@ -15,13 +16,13 @@ namespace LmycWebSite.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Boats
+        // GET: Boats1
         public ActionResult Index()
         {
             return View(db.Boats.ToList());
         }
 
-        // GET: Boats/Details/5
+        // GET: Boats1/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,21 +37,25 @@ namespace LmycWebSite.Controllers
             return View(boat);
         }
 
-        // GET: Boats/Create
+        // GET: Boats1/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Boats/Create
+        // POST: Boats1/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BoatId,BoatName,Picture,LengthInFeet,Make,Year,RecordCreationDate,Id")] Boat boat)
+        public ActionResult Create([Bind(Include = "BoatId,BoatName,Picture,LengthInFeet,Make,Year,RecordCreationDate,CreatedBy")] Boat boat)
         {
             if (ModelState.IsValid)
             {
+                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                var user = userManager.FindByName(User.Identity.Name);
+                boat.CreatedBy = user.Id;
+                boat.RecordCreationDate = DateTime.Now;
                 db.Boats.Add(boat);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -59,7 +64,7 @@ namespace LmycWebSite.Controllers
             return View(boat);
         }
 
-        // GET: Boats/Edit/5
+        // GET: Boats1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,12 +79,12 @@ namespace LmycWebSite.Controllers
             return View(boat);
         }
 
-        // POST: Boats/Edit/5
+        // POST: Boats1/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BoatId,BoatName,Picture,LengthInFeet,Make,Year,RecordCreationDate,Id")] Boat boat)
+        public ActionResult Edit([Bind(Include = "BoatId,BoatName,Picture,LengthInFeet,Make,Year,RecordCreationDate,CreatedBy")] Boat boat)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +95,7 @@ namespace LmycWebSite.Controllers
             return View(boat);
         }
 
-        // GET: Boats/Delete/5
+        // GET: Boats1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,7 +110,7 @@ namespace LmycWebSite.Controllers
             return View(boat);
         }
 
-        // POST: Boats/Delete/5
+        // POST: Boats1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

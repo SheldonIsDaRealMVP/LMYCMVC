@@ -5,16 +5,15 @@ namespace LmycWebSite.Migrations.Boats
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<LmycWebSite.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<LmycDataLib.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
             MigrationsDirectory = @"Migrations\Boats";
-            ContextKey = "LmycWebSite.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(LmycWebSite.Models.ApplicationDbContext context)
+        protected override void Seed(LmycDataLib.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
