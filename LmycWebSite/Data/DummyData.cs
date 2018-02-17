@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using LmycDataLib.Models.UserMembers;
-using LmycDataLib.Models.Boat;
+using LmycDataLib.Models;
 
 namespace LmycWebSite.Data
 {
@@ -45,7 +44,7 @@ namespace LmycWebSite.Data
 
             return Users;
         }
-        public static System.Collections.Generic.List<Boat> getBoats(Models.ApplicationDbContext context)
+        public static System.Collections.Generic.List<Boat> getBoats(LmycDataLib.Models.ApplicationDbContext context)
         {
             List<Boat> Boats = new List<Boat>()
             {
@@ -57,8 +56,7 @@ namespace LmycWebSite.Data
                     Make = "Some Time",
                     Year = 1000,
                     RecordCreationDate = new DateTime(010201),
-                    Id = 0,
-                    CreatedBy = context.UserMembers.Find("c5e4fce3-e5a8-4352-b8c9-a25788012d12"),
+                    CreatedBy = context.UserMembers.Find("c5e4fce3-e5a8-4352-b8c9-a25788012d12").Id,
                 },
                 new Boat() {
                     BoatId = 2,
@@ -68,8 +66,7 @@ namespace LmycWebSite.Data
                     Make = "Some Time 2",
                     Year = 2000,
                     RecordCreationDate = new DateTime(010202),
-                    Id = 1,
-                    CreatedBy = context.UserMembers.Find("c5e4fce3-e5a8-4352-b8c9-a25788012d13"),
+                    CreatedBy = context.UserMembers.Find("c5e4fce3-e5a8-4352-b8c9-a25788012d13").Id,
                 },
             };
 
