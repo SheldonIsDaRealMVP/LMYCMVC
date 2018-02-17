@@ -83,8 +83,8 @@ namespace LmycWebSite.Migrations.Users
 
             var result4 = UserManager.AddToRole("2", "Member");
 
-            context.Boats.AddOrUpdate(
-                b => b.BoatId, DummyData.getBoats(context).ToArray());
+            //context.Boats.AddOrUpdate(
+            //    b => b.BoatId, DummyData.getBoats(context).ToArray());
 
             context.SaveChanges();
         }

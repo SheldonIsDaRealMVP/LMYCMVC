@@ -211,6 +211,10 @@
     <Compile Include="Migrations\Users\201802152349070_InitialCreate1.Designer.cs">
       <DependentUpon>201802152349070_InitialCreate1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Users\201802172317095_SecondCreate.cs" />
+    <Compile Include="Migrations\Users\201802172317095_SecondCreate.Designer.cs">
+      <DependentUpon>201802172317095_SecondCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Users\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -326,6 +330,7 @@
     <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\theme.css" />
     <Content Include="Docs\Migrations.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -436,6 +441,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Users\201802152349070_InitialCreate1.resx">
       <DependentUpon>201802152349070_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Users\201802172317095_SecondCreate.resx">
+      <DependentUpon>201802172317095_SecondCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
