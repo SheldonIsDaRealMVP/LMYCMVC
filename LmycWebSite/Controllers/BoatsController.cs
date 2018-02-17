@@ -36,7 +36,7 @@ namespace LmycWebSite.Controllers
             }
             return View(boat);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Boats1/Create
         public ActionResult Create()
         {
@@ -46,6 +46,7 @@ namespace LmycWebSite.Controllers
         // POST: Boats1/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BoatId,BoatName,Picture,LengthInFeet,Make,Year,RecordCreationDate,CreatedBy")] Boat boat)
@@ -64,6 +65,7 @@ namespace LmycWebSite.Controllers
             return View(boat);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Boats1/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -79,6 +81,7 @@ namespace LmycWebSite.Controllers
             return View(boat);
         }
 
+        [Authorize(Roles ="Admin")]
         // POST: Boats1/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -96,6 +99,7 @@ namespace LmycWebSite.Controllers
         }
 
         // GET: Boats1/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -110,6 +114,7 @@ namespace LmycWebSite.Controllers
             return View(boat);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Boats1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

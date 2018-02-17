@@ -41,10 +41,11 @@ namespace LmycWebSite.Migrations.Users
 
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-            var role = new IdentityRole();
-            role.Name = "Admin";
-            roleManager.Create(role);
-
+            if (!roleManager.RoleExists("Admin")) { 
+                var role = new IdentityRole();
+                role.Name = "Admin";
+                roleManager.Create(role);
+            }
             var user = new UserMembers
             {
                 Id = "1",
@@ -59,8 +60,18 @@ namespace LmycWebSite.Migrations.Users
                 Role = "Admin",
             };
             var result = UserManager.Create(user, "P@$$w0rd");
-            var result1 = UserManager.AddToRole("1", "Admin");
+            if(!UserManager.IsInRole("1", "Admin"))
+            {
+                var result1 = UserManager.AddToRole("1", "Admin");
+            }
 
+
+            if (!roleManager.RoleExists("Member"))
+            {
+                var role = new IdentityRole();
+                role.Name = "Member";
+                roleManager.Create(role);
+            }
             user = new UserMembers
             {
                 Id = "2",
@@ -75,18 +86,17 @@ namespace LmycWebSite.Migrations.Users
                 Role = "Member",
             };
             var result3 = UserManager.Create(user, "P@$$w0rd");
-            
 
-            role = new IdentityRole();
-            role.Name = "Member";
-            roleManager.Create(role);
+            if (!UserManager.IsInRole("2", "Member"))
+            {
+                var result4 = UserManager.AddToRole("2", "Member");
+            }
 
-            var result4 = UserManager.AddToRole("2", "Member");
 
-            context.Boats.AddOrUpdate(
-                b => b.BoatId, DummyData.getBoats(context).ToArray());
 
-            context.SaveChanges();
+            //context.Boats.AddOrUpdate(
+            //    b => b.BoatId, DummyData.getBoats(context).ToArray());
+
         }
     }
 }
