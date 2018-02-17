@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LmycDataLib.Models
+
 {
     public class UserMembers: ApplicationUser
     {

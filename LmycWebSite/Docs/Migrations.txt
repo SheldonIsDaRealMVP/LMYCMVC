@@ -1,5 +1,5 @@
-﻿enable-migrations -ContextTypeName LmycWebSite.Models.IdentityModels -MigrationsDirectory Migrations\Users
+﻿Enable-Migrations -ContextTypeName ApplicationDbContext -ContextProjectName LmycDataLib -MigrationsDirectory Migrations\Users
 
-add-migration -ConfigurationTypeName WebapiLab.Migrations.Students.Configuration "InitialCreate"
+add-migration -ConfigurationTypeName LmycWebSite.Migrations.Users.Configuration "InitialCreate"
 
-update-database -ConfigurationTypeName WebapiLab.Migrations.Students.Configuration
+update-database -ConfigurationTypeName LmycWebSite.Migrations.Users.Configuration
