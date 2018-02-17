@@ -64,7 +64,7 @@ namespace LmycWebSite.Models
     public class RegisterViewModel
     {
         [Required]
-        [StringLength(25, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(25, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 1)]
         public string UserName { get; set; }
 
         [Required]
@@ -139,7 +139,6 @@ namespace LmycWebSite.Models
     public class ForgotPasswordViewModel
     {
         [Required]
-        [EmailAddress]
         [Display(Name = "UserName")]
         public string UserName { get; set; }
     }

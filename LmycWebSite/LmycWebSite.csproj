@@ -193,6 +193,8 @@
     <Compile Include="Controllers\BoatsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserMembersController.cs" />
+    <Compile Include="Data\DummyData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,6 +207,15 @@
       <DependentUpon>201802082045165_InitialCreate1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Boats\Configuration.cs" />
+    <Compile Include="Migrations\Users\201802152306521_InitialCreate.cs" />
+    <Compile Include="Migrations\Users\201802152306521_InitialCreate.Designer.cs">
+      <DependentUpon>201802152306521_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Users\201802152349070_InitialCreate1.cs" />
+    <Compile Include="Migrations\Users\201802152349070_InitialCreate1.Designer.cs">
+      <DependentUpon>201802152349070_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Users\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -362,7 +373,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -391,6 +402,12 @@
     <Content Include="Views\Boats\Details.cshtml" />
     <Content Include="Views\Boats\Edit.cshtml" />
     <Content Include="Views\Boats\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\UserMembers\Create.cshtml" />
+    <Content Include="Views\UserMembers\Delete.cshtml" />
+    <Content Include="Views\UserMembers\Details.cshtml" />
+    <Content Include="Views\UserMembers\Edit.cshtml" />
+    <Content Include="Views\UserMembers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -420,6 +437,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Boats\201802082045165_InitialCreate1.resx">
       <DependentUpon>201802082045165_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Users\201802152306521_InitialCreate.resx">
+      <DependentUpon>201802152306521_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Users\201802152349070_InitialCreate1.resx">
+      <DependentUpon>201802152349070_InitialCreate1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

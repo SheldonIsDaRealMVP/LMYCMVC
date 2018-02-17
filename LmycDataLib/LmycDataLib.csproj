@@ -55,7 +55,7 @@
   <ItemGroup>
     <Compile Include="Models\Boat\Boat.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\UserMembers\User.cs" />
+    <Compile Include="Models\UserMembers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
