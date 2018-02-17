@@ -3,7 +3,7 @@ namespace LmycWebSite.Migrations.Users
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class InitialCreate5 : DbMigration
     {
         public override void Up()
         {
@@ -18,12 +18,11 @@ namespace LmycWebSite.Migrations.Users
                         Make = c.String(),
                         Year = c.Int(nullable: false),
                         RecordCreationDate = c.DateTime(nullable: false, storeType: "date"),
-                        Id = c.Int(nullable: false),
-                        CreatedBy_Id = c.String(maxLength: 128),
+                        CreatedBy = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.BoatId)
-                .ForeignKey("dbo.AspNetUsers", t => t.CreatedBy_Id)
-                .Index(t => t.CreatedBy_Id);
+                .ForeignKey("dbo.AspNetUsers", t => t.CreatedBy)
+                .Index(t => t.CreatedBy);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -109,7 +108,7 @@ namespace LmycWebSite.Migrations.Users
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Boats", "CreatedBy_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Boats", "CreatedBy", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
@@ -119,7 +118,7 @@ namespace LmycWebSite.Migrations.Users
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.Boats", new[] { "CreatedBy_Id" });
+            DropIndex("dbo.Boats", new[] { "CreatedBy" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
