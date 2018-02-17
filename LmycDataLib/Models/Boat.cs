@@ -1,12 +1,11 @@
-﻿using LmycWebSite.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace LmycDataLib.Models.Boat
+namespace LmycDataLib.Models
 {
     public class Boat
     {
@@ -25,12 +24,15 @@ namespace LmycDataLib.Models.Boat
 
         public int Year { get; set; }
 
+        [ScaffoldColumn(false)]
         [Column(TypeName="Date")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime RecordCreationDate { get; set; }
 
         [ForeignKey("User")]
         [ScaffoldColumn(false)]
-        [Display (Name ="Created By")]
+        [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
 
         [ScaffoldColumn(false)]

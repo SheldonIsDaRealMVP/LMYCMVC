@@ -1,11 +1,10 @@
-﻿using LmycWebSite.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LmycDataLib.Models.UserMembers
+namespace LmycDataLib.Models
 {
     public class UserMembers: ApplicationUser
     {

@@ -29,16 +29,6 @@ namespace LmycWebSite.Migrations.Boats
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        Firstname = c.String(),
-                        LastName = c.String(),
-                        Street = c.String(),
-                        City = c.String(),
-                        Province = c.String(),
-                        PostalCode = c.String(),
-                        Country = c.String(),
-                        MobileNumber = c.String(),
-                        SailingExperience = c.String(),
-                        Role = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -50,6 +40,17 @@ namespace LmycWebSite.Migrations.Boats
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
+                        Firstname = c.String(),
+                        LastName = c.String(),
+                        Street = c.String(),
+                        City = c.String(),
+                        Province = c.String(),
+                        PostalCode = c.String(),
+                        Country = c.String(),
+                        MobileNumber = c.String(),
+                        SailingExperience = c.String(),
+                        Role = c.String(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex");
