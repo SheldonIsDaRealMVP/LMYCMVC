@@ -10,5 +10,6 @@ namespace LmycWebSite.Models
     {
         public List<UserMembers> FirstTable { get; set; }
         public List<AppRole> SecondTable { get; set; }
+        public List<KeyValuePair<String, String>> ThirdTable {get; set;}
     }
 }
