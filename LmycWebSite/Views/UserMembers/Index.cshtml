@@ -47,10 +47,11 @@
 <div class="text-danger">
     @ViewBag.RoleError
 </div>
+<h2>Roles</h2>
 <table>
     <tr>
         <th>
-            Roles
+            Role Name
         </th>
     </tr>
     @foreach (var item in Model.SecondTable)
@@ -64,6 +65,30 @@
                 {
                  @Html.ActionLink("Delete", "Delete", "AppRoles", new { id = item.roleName }, null)
                 }
+            </td>
+        </tr>
+    }
+</table>
+
+<br />
+<h2>Users and Their roles</h2>
+<table>
+    <tr>
+        <th>
+            User
+        </th>
+        <th>
+            Role
+        </th>
+    </tr>
+    @foreach (var item in Model.ThirdTable)
+    {
+        <tr>
+            <td>
+                @item.Key
+            </td>
+            <td>
+                @item.Value
             </td>
         </tr>
     }

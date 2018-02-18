@@ -20,10 +20,27 @@ namespace LmycWebSite.Controllers
         // GET: UserMembers
         public ActionResult Index()
         {
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
             //Get the list of Roles
             UserAndRolesHelper viewModel = new UserAndRolesHelper();
             viewModel.FirstTable = db.UserMembers.ToList();
             viewModel.SecondTable = db.AppRole.ToList();
+            viewModel.ThirdTable = new List<KeyValuePair<string, string>>();
+
+            //For each user, get their roles
+            foreach(var user in viewModel.FirstTable)
+            {
+                //Returns a list of roles by their user id
+                var rolesByUser = UserManager.GetRoles(user.Id);
+
+                //Iterate through each role return per user and add to list
+                for (int i = 0; i < rolesByUser.Count(); i++)
+                {
+                    var element = new KeyValuePair<String, String>(user.UserName, rolesByUser.ElementAt(i));
+                    viewModel.ThirdTable.Add(element);
+                }
+            }
+
             if (TempData["RoleError"] != null) { 
                 ViewBag.RoleError = TempData["RoleError"].ToString();
             } else if (TempData["RoleSuccess"] != null) {
