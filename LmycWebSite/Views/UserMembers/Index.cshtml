@@ -1,102 +1,70 @@
-﻿@model IEnumerable<LmycDataLib.Models.UserMembers>
+﻿@model LmycWebSite.Models.UserAndRolesHelper
 
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="text-success">
+    @ViewBag.UserSuccess
+</div>
+<div class="text-danger">
+    @ViewBag.UserError
+</div>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            Email
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Firstname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Street)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Province)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PostalCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Country)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MobileNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SailingExperience)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Role)
+            User Name
         </th>
         <th></th>
     </tr>
+    @foreach (var item in Model.FirstTable)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("Add Role", "Edit", new { id = item.Id })
+                |
+                @Html.ActionLink("Remove Roles", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
 
-@foreach (var item in Model) {
+<p>
+    @Html.ActionLink("Create New Role", "Create", "AppRoles", null, null)
+</p>
+<div class="text-success">
+    @ViewBag.RoleSuccess
+</div>
+<div class="text-danger">
+    @ViewBag.RoleError
+</div>
+<table>
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Firstname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Street)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Province)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostalCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MobileNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SailingExperience)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Role)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @if (item.Id != "1")
-            {
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-            }
-        </td>
+        <th>
+            Roles
+        </th>
     </tr>
-}
-
+    @foreach (var item in Model.SecondTable)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.roleName)
+            </td>
+            <td>
+              @if (item.roleName != "Admin")
+                {
+                 @Html.ActionLink("Delete", "Delete", "AppRoles", new { id = item.roleName }, null)
+                }
+            </td>
+        </tr>
+    }
 </table>

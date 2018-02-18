@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace LmycWebSite.Controllers
 {
+    [Authorize]
     public class BoatsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

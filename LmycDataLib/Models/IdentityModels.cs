@@ -25,6 +25,7 @@ namespace LmycDataLib.Models
         {
         }
 
+        public DbSet<AppRole> AppRole{get; set;}
         public DbSet<Boat> Boats { get; set; }
         public DbSet<UserMembers> UserMembers { get; set; }
 

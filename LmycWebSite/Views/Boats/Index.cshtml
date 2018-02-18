@@ -51,12 +51,22 @@
             @Html.DisplayFor(modelItem => item.Year)
         </td>
         <td>
-            @{if(this.User.IsInRole("Admin"))
-                {
-                    @Html.ActionLink("Edit", "Edit", new { id=item.BoatId })
-                    @Html.ActionLink("Details", "Details", new { id=item.BoatId })
-                    @Html.ActionLink("Delete", "Delete", new { id=item.BoatId })
-                }
+            @{if (this.User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.BoatId })
+            }
+            }
+            |
+            @{if (this.User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Details", "Details", new { id = item.BoatId })
+            }
+            }
+            |
+            @{if (this.User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Delete", "Delete", new { id = item.BoatId })
+            }
             }
         </td>
     </tr>

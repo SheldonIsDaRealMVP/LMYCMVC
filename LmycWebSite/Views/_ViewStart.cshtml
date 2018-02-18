@@ -3,8 +3,12 @@
     {
         Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     }
-    else
+    else if (User.Identity.IsAuthenticated)
     {
         Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutPublic.cshtml";
     }
 }
