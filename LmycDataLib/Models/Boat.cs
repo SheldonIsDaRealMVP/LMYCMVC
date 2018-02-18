@@ -13,22 +13,21 @@ namespace LmycDataLib.Models
         public int BoatId { get; set; }
 
         [Display(Name = "Name")]
+        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         public string BoatName { get; set; }
 
         public string Picture { get; set; }
 
         [Display (Name = "Length")]
+        [Range(0, 1000)]
         public double LengthInFeet { get; set; }
 
+        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         public string Make { get; set; }
 
+        [Display(Name = "Length")]
+        [Range(1900, 2020)]
         public int Year { get; set; }
-
-        /*[ScaffoldColumn(false)]
-        [Column(TypeName="Date")]
-        [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:yyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime RecordCreationDate { get; set; }*/
 
         public string RecordCreationDate { get; set; }
 

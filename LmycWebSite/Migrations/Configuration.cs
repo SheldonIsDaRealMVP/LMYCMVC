@@ -96,7 +96,7 @@ namespace LmycWebSite.Migrations
                 Province = "Province",
                 Country = "Country",
                 MobileNumber = "MobileNumber",
-                SailingExperience = "SailingExperience",
+                SailingExperience = 9,
                 Role = "Admin",
             };
             var result = UserManager.Create(user, "P@$$w0rd");
@@ -122,7 +122,7 @@ namespace LmycWebSite.Migrations
                 Province = "Province",
                 Country = "Country",
                 MobileNumber = "MobileNumber",
-                SailingExperience = "SailingExperience",
+                SailingExperience = 6,
                 Role = "Member",
             };
             var result3 = UserManager.Create(user, "P@$$w0rd");
