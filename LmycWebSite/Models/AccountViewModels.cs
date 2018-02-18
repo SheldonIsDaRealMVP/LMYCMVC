@@ -79,31 +79,44 @@ namespace LmycWebSite.Models
         public string Password { get; set; }
 
         [Required]
+        [Display(Name = "First Name")]
+        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         public string FirstName { get; set;}
 
         [Required]
+        [Display(Name = "Last Name")]
+        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         public string LastName { get; set; }
 
         [Required]
+        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         public string Street { get; set; }
 
         [Required]
+        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         public string City { get; set; }
 
         [Required]
+        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         public string Province { get; set; }
 
         [Required]
+        [Display(Name = "Postal Code")]
+        [RegularExpression(@"[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]", ErrorMessage = "Invalid Postal Code")]
         public string PostalCode { get; set; }
 
         [Required]
+        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         public string Country { get; set; }
 
         [Required]
+        [Display(Name = "Mobile Number")]
         public string MobileNumber { get; set; }
 
         [Required]
-        public string SailingExperience { get; set; }
+        [Display(Name = "Sailing Experience")]
+        [Range(0, 10)]
+        public int SailingExperience { get; set; }
 
 
         public string Role { get; set; } = "Member";
