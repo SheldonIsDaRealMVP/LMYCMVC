@@ -1,5 +1,5 @@
-﻿Enable-Migrations -ContextTypeName ApplicationDbContext -ContextProjectName LmycDataLib -MigrationsDirectory Migrations\Users
+﻿Enable-Migrations -ContextTypeName ApplicationDbContext -ContextProjectName LmycDataLib -MigrationsDirectory Migrations
 
-add-migration -ConfigurationTypeName LmycWebSite.Migrations.Users.Configuration "InitialCreate"
+add-migration -ConfigurationTypeName LmycWebSite.Migrations.Configuration "InitialCreate"
 
-update-database -ConfigurationTypeName LmycWebSite.Migrations.Users.Configuration
+update-database -ConfigurationTypeName LmycWebSite.Migrations.Configuration

@@ -56,7 +56,7 @@ namespace LmycWebSite.Controllers
                 var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
                 var user = userManager.FindByName(User.Identity.Name);
                 boat.CreatedBy = user.Id;
-                boat.RecordCreationDate = DateTime.Now;
+                boat.RecordCreationDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
                 db.Boats.Add(boat);
                 db.SaveChanges();
                 return RedirectToAction("Index");

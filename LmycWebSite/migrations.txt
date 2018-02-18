@@ -5,3 +5,4 @@ enable-migrations -ContextProjectName LmycDataLib -StartUpProjectName LmycWebSit
 add-migration -ConfigurationTypeName LmycWebSite.Migrations.Boats.Configuration "InitialCreate"
 
 update-database -ConfigurationTypeName LmycWebSite.Migrations.Boats.Configuration
+

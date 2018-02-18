@@ -194,20 +194,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserMembersController.cs" />
-    <Compile Include="Data\DummyData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Boats\201802160043007_InitialCreate.cs" />
-    <Compile Include="Migrations\Boats\201802160043007_InitialCreate.Designer.cs">
-      <DependentUpon>201802160043007_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201802180039153_InitialCreate.cs" />
+    <Compile Include="Migrations\201802180039153_InitialCreate.Designer.cs">
+      <DependentUpon>201802180039153_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Boats\Configuration.cs" />
-    <Compile Include="Migrations\Users\201802172311553_InitialCreate5.cs" />
-    <Compile Include="Migrations\Users\201802172311553_InitialCreate5.Designer.cs">
-      <DependentUpon>201802172311553_InitialCreate5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Users\Configuration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -322,6 +316,7 @@
     <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\theme.css" />
     <Content Include="Docs\Migrations.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -422,13 +417,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\Boats\201802160043007_InitialCreate.resx">
-      <DependentUpon>201802160043007_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Users\201802172311553_InitialCreate5.resx">
-      <DependentUpon>201802172311553_InitialCreate5.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802180039153_InitialCreate.resx">
+      <DependentUpon>201802180039153_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

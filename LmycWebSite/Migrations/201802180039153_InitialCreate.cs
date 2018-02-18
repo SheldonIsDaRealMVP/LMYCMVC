@@ -1,9 +1,9 @@
-namespace LmycWebSite.Migrations.Users
+namespace LmycWebSite.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate5 : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -17,7 +17,7 @@ namespace LmycWebSite.Migrations.Users
                         LengthInFeet = c.Double(nullable: false),
                         Make = c.String(),
                         Year = c.Int(nullable: false),
-                        RecordCreationDate = c.DateTime(nullable: false, storeType: "date"),
+                        RecordCreationDate = c.String(),
                         CreatedBy = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.BoatId)
