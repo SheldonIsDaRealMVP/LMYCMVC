@@ -60,7 +60,10 @@
                 @Html.DisplayFor(modelItem => item.roleName)
             </td>
             <td>
-                @Html.ActionLink("Delete", "Delete", "AppRoles", new { id = item.roleName }, null)
+              @if (item.roleName != "Admin")
+                {
+                 @Html.ActionLink("Delete", "Delete", "AppRoles", new { id = item.roleName }, null)
+                }
             </td>
         </tr>
     }
