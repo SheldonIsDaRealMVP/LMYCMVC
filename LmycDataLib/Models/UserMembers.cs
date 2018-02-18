@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,5 +22,8 @@ namespace LmycDataLib.Models
         public string SailingExperience { get; set; }
 
         public string Role { get; set; }
+
+        [ScaffoldColumn(false)]
+        public AppRole AppRole { get; set; }
     }
 }

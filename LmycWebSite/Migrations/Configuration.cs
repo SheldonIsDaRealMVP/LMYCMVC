@@ -62,6 +62,23 @@ namespace LmycWebSite.Migrations
             return boats;
         }
 
+        public static List<AppRole> getRoles(ApplicationDbContext context)
+        {
+            List<AppRole> Roles = new List<AppRole>()
+            {
+                new AppRole()
+                {
+                    roleName = "Admin",
+                },
+                new AppRole()
+                {
+                    roleName = "Member",
+                },
+            };
+
+            return Roles;
+        }
+
         protected override void Seed(LmycDataLib.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
@@ -76,6 +93,11 @@ namespace LmycWebSite.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.AppRole.AddOrUpdate(t => t.roleName, getRoles(context).ToArray());
+
+            context.SaveChanges();
+
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
@@ -104,7 +126,6 @@ namespace LmycWebSite.Migrations
             {
                 var result1 = UserManager.AddToRole("1", "Admin");
             }
-
 
             if (!roleManager.RoleExists("Member"))
             {
