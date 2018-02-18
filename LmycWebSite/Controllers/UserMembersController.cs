@@ -97,6 +97,11 @@ namespace LmycWebSite.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            if (id == "" + 1)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
             UserMembers userMembers = db.UserMembers.Find(id);
             if (userMembers == null)
             {
