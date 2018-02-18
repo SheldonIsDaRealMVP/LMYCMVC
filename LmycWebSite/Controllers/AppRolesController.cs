@@ -96,7 +96,7 @@ namespace LmycWebSite.Controllers
             {
                 AppRole appRole = db.AppRole.Find(id);
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
-                if (roleManager.RoleExists(appRole.roleName))
+                if (appRole.roleName != "Admin" && roleManager.RoleExists(appRole.roleName))
                 {
                     var role = roleManager.FindByName(appRole.roleName);
                     roleManager.Delete(role);

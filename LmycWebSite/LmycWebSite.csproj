@@ -195,9 +195,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserMembersController.cs" />
-    <Compile Include="Migrations\201802180640253_InitialCreate.cs" />
-    <Compile Include="Migrations\201802180640253_InitialCreate.Designer.cs">
-      <DependentUpon>201802180640253_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201802180701162_InitialCreate.cs" />
+    <Compile Include="Migrations\201802180701162_InitialCreate.Designer.cs">
+      <DependentUpon>201802180701162_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\UserAndRolesHelper.cs" />
@@ -422,8 +422,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802180640253_InitialCreate.resx">
-      <DependentUpon>201802180640253_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802180701162_InitialCreate.resx">
+      <DependentUpon>201802180701162_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
