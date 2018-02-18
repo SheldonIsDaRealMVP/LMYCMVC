@@ -24,11 +24,13 @@ namespace LmycDataLib.Models
 
         public int Year { get; set; }
 
-        [ScaffoldColumn(false)]
+        /*[ScaffoldColumn(false)]
         [Column(TypeName="Date")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime RecordCreationDate { get; set; }
+        public DateTime RecordCreationDate { get; set; }*/
+
+        public string RecordCreationDate { get; set; }
 
         [ForeignKey("User")]
         [ScaffoldColumn(false)]

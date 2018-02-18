@@ -1,11 +1,10 @@
-namespace LmycWebSite.Migrations.Users
+namespace LmycWebSite.Migrations
 {
     using LmycDataLib.Models;
-    using LmycWebSite.Data;
-    using LmycWebSite.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -15,8 +14,52 @@ namespace LmycWebSite.Migrations.Users
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"Migrations\Users";
-            ContextKey = "LmycWebSite.Models.ApplicationDbContext";
+            MigrationsDirectory = @"Migrations";
+        }
+
+        public static List<Boat> getBoats(ApplicationDbContext context)
+        {
+            var dateTime = DateTime.Now;
+            string dateFormat = dateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
+
+            List<Boat> boats = new List<Boat>()
+            {
+                new Boat()
+                {
+                    BoatId = 1,
+                    BoatName = "Boaty McBoatface",
+                    Picture = "boaty.jpeg",
+                    LengthInFeet = 50,
+                    Make = "Speedboat",
+                    Year = 2014,
+                    RecordCreationDate = dateFormat,
+                    CreatedBy = "1",
+                },
+                new Boat()
+                {
+                    BoatId = 2,
+                    BoatName = "Boaty McBoatface Jr.",
+                    Picture = "boatyjr.jpeg",
+                    LengthInFeet = 35,
+                    Make = "Medium Speedboat",
+                    Year = 2016,
+                    RecordCreationDate = dateFormat,
+                    CreatedBy = "1",
+                },
+                new Boat()
+                {
+                    BoatId = 3,
+                    BoatName = "Boaty McBoatface Sr.",
+                    Picture = "boatysr.jpeg",
+                    LengthInFeet = 70,
+                    Make = "Maximum Speedboat",
+                    Year = 2004,
+                    RecordCreationDate = dateFormat,
+                    CreatedBy = "2",
+                }
+            };
+
+            return boats;
         }
 
         protected override void Seed(LmycDataLib.Models.ApplicationDbContext context)
@@ -33,15 +76,12 @@ namespace LmycWebSite.Migrations.Users
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            //context.UserMembers.AddOrUpdate(
-            //    u => u.Id, DummyData.getUsers().ToArray());
-            //context.SaveChanges();
-
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-            if (!roleManager.RoleExists("Admin")) { 
+            if (!roleManager.RoleExists("Admin"))
+            {
                 var role = new IdentityRole();
                 role.Name = "Admin";
                 roleManager.Create(role);
@@ -60,7 +100,7 @@ namespace LmycWebSite.Migrations.Users
                 Role = "Admin",
             };
             var result = UserManager.Create(user, "P@$$w0rd");
-            if(!UserManager.IsInRole("1", "Admin"))
+            if (!UserManager.IsInRole("1", "Admin"))
             {
                 var result1 = UserManager.AddToRole("1", "Admin");
             }
@@ -92,11 +132,9 @@ namespace LmycWebSite.Migrations.Users
                 var result4 = UserManager.AddToRole("2", "Member");
             }
 
+            context.Boats.AddOrUpdate(t => t.BoatId, getBoats(context).ToArray());
 
-
-            //context.Boats.AddOrUpdate(
-            //    b => b.BoatId, DummyData.getBoats(context).ToArray());
-
+            context.SaveChanges();
         }
     }
 }
