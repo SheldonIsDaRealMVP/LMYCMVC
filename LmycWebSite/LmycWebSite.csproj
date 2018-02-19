@@ -190,18 +190,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppRolesController.cs" />
     <Compile Include="Controllers\BoatsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserMembersController.cs" />
+    <Compile Include="Migrations\201802182355449_InitialCreate.cs" />
+    <Compile Include="Migrations\201802182355449_InitialCreate.Designer.cs">
+      <DependentUpon>201802182355449_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\UserAndRolesHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802180217264_InitialCreate.cs" />
-    <Compile Include="Migrations\201802180217264_InitialCreate.Designer.cs">
-      <DependentUpon>201802180217264_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -351,6 +353,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\UserMembers\Delete.cshtml" />
+    <Content Include="Views\UserMembers\Edit.cshtml" />
+    <Content Include="Views\UserMembers\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -396,6 +401,8 @@
     <Content Include="Views\UserMembers\Details.cshtml" />
     <Content Include="Views\UserMembers\Edit.cshtml" />
     <Content Include="Views\UserMembers\Index.cshtml" />
+    <Content Include="Views\AppRoles\Create.cshtml" />
+    <Content Include="Views\AppRoles\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -418,11 +425,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802180217264_InitialCreate.resx">
-      <DependentUpon>201802180217264_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802182355449_InitialCreate.resx">
+      <DependentUpon>201802182355449_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

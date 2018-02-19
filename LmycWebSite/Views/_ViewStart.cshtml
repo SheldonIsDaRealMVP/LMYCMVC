@@ -1,4 +1,19 @@
 ﻿@{
+<<<<<<< HEAD
 
         Layout = "~/Views/Shared/_Layout.cshtml";
+=======
+    if (this.User.IsInRole("Admin") && User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+    else if ((this.User.IsInRole("Member") || this.User.IsInRole("Members")) && User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+    }
+>>>>>>> 7d57cf471c13105d38ae5f435016c1cba62740a3
 }

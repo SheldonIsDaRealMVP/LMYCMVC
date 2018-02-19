@@ -8,6 +8,14 @@ namespace LmycWebSite.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.AppRoles",
+                c => new
+                    {
+                        roleName = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => t.roleName);
+            
+            CreateTable(
                 "dbo.Boats",
                 c => new
                     {
@@ -51,9 +59,12 @@ namespace LmycWebSite.Migrations
                         SailingExperience = c.Int(),
                         Role = c.String(),
                         Discriminator = c.String(nullable: false, maxLength: 128),
+                        AppRole_roleName = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .Index(t => t.UserName, unique: true, name: "UserNameIndex");
+                .ForeignKey("dbo.AppRoles", t => t.AppRole_roleName)
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex")
+                .Index(t => t.AppRole_roleName);
             
             CreateTable(
                 "dbo.AspNetUserClaims",
@@ -109,6 +120,7 @@ namespace LmycWebSite.Migrations
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Boats", "CreatedBy", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUsers", "AppRole_roleName", "dbo.AppRoles");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
@@ -117,6 +129,7 @@ namespace LmycWebSite.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", new[] { "AppRole_roleName" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Boats", new[] { "CreatedBy" });
             DropTable("dbo.AspNetRoles");
@@ -125,6 +138,7 @@ namespace LmycWebSite.Migrations
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.Boats");
+            DropTable("dbo.AppRoles");
         }
     }
 }
