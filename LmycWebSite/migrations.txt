@@ -1,0 +1,8 @@
+﻿Enable-Migrations -ContextTypeName ApplicationDbContext -MigrationsDirectory Migrations\Boats -Context
+
+enable-migrations -ContextProjectName LmycDataLib -StartUpProjectName LmycWebSite -ContextTypeName ApplicationDbContext -ProjectName LmycWebSite -MigrationsDirectory Migrations\Boats
+
+add-migration -ConfigurationTypeName LmycWebSite.Migrations.Boats.Configuration "InitialCreate"
+
+update-database -ConfigurationTypeName LmycWebSite.Migrations.Boats.Configuration
+

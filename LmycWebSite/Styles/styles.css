@@ -1,0 +1,58 @@
+﻿.masthead {
+    background: url('https://static.pexels.com/photos/611328/pexels-photo-611328.jpeg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+#masthead-title {
+    font-size: 7rem;
+    font-weight: lighter;
+}
+
+.body-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.content-body {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+}
+
+footer {
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+#lmyc-navbar {
+    background: #20323f;
+    color: white;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+#lmyc-navbar a {
+    color: white;
+}
+
+#lmyc-navbar a:hover {
+    color: #20323f;
+    background: white;
+}
+
+.lmyc-navbar-logo {
+    background: url('http://www.lmyc.ca/sites/all/themes/lmyc/images/logo.png') no-repeat;
+    background-size: contain;
+    text-indent: -9999px;
+    display: block;
+    height: 50px;
+    width: 110px;
+}
+
+#lmyc-navbar .lmyc-navbar-logo:hover {
+    background: url('http://www.lmyc.ca/sites/all/themes/lmyc/images/logo.png') no-repeat;
+    background-size: contain;
+}

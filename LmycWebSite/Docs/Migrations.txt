@@ -1,0 +1,6 @@
+﻿Enable-Migrations -ContextTypeName ApplicationDbContext -ContextProjectName LmycDataLib -MigrationsDirectory Migrations
+
+add-migration -ConfigurationTypeName LmycWebSite.Migrations.Configuration "InitialCreate"
+
+update-database -ConfigurationTypeName LmycWebSite.Migrations.Configuration
+

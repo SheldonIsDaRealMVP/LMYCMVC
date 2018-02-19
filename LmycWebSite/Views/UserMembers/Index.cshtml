@@ -1,0 +1,98 @@
+﻿@model LmycWebSite.Models.UserAndRolesHelper
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="content-body">
+    <h2>Index</h2>
+<div class="text-success">
+    @ViewBag.UserSuccess
+</div>
+<div class="text-danger">
+    @ViewBag.UserError
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Email
+        </th>
+        <th>
+            User Name
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.FirstTable)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("Add Role", "Edit", new { id = item.Id })
+                |
+                @Html.ActionLink("Remove Roles", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    @Html.ActionLink("Create New Role", "Create", "AppRoles", null, null)
+</p>
+<div class="text-success">
+    @ViewBag.RoleSuccess
+</div>
+<div class="text-danger">
+    @ViewBag.RoleError
+</div>
+<h2>Roles</h2>
+<table>
+    <tr>
+        <th>
+            Role Name
+        </th>
+    </tr>
+    @foreach (var item in Model.SecondTable)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.roleName)
+            </td>
+            <td>
+              @if (item.roleName != "Admin")
+                {
+                 @Html.ActionLink("Delete", "Delete", "AppRoles", new { id = item.roleName }, null)
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<br />
+<h2>Users and Their roles</h2>
+<table>
+    <tr>
+        <th>
+            User
+        </th>
+        <th>
+            Role
+        </th>
+    </tr>
+    @foreach (var item in Model.ThirdTable)
+    {
+        <tr>
+            <td>
+                @item.Key
+            </td>
+            <td>
+                @item.Value
+            </td>
+        </tr>
+    }
+</table>
+</div>
