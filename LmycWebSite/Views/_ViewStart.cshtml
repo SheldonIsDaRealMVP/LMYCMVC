@@ -1,14 +1,4 @@
 ﻿@{
-    if (this.User.IsInRole("Admin") && User.Identity.IsAuthenticated)
-    {
-        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    }
-    else if ((this.User.IsInRole("Member") || this.User.IsInRole("Members")) && User.Identity.IsAuthenticated)
-    {
-        Layout = "~/Views/Shared/_LayoutUser.cshtml";
-    }
-    else
-    {
-        Layout = "~/Views/Shared/_LayoutPublic.cshtml";
-    }
+
+        Layout = "~/Views/Shared/_Layout.cshtml";
 }

@@ -318,7 +318,8 @@
     <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\theme.css" />
+    <Content Include="Styles\landing.css" />
+    <Content Include="Styles\styles.css" />
     <Content Include="Docs\Migrations.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -394,8 +395,12 @@
     <Content Include="Views\Boats\Details.cshtml" />
     <Content Include="Views\Boats\Edit.cshtml" />
     <Content Include="Views\Boats\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
-    <Content Include="Views\Shared\_LayoutPublic.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\UserMembers\Create.cshtml" />
+    <Content Include="Views\UserMembers\Delete.cshtml" />
+    <Content Include="Views\UserMembers\Details.cshtml" />
+    <Content Include="Views\UserMembers\Edit.cshtml" />
+    <Content Include="Views\UserMembers\Index.cshtml" />
     <Content Include="Views\AppRoles\Create.cshtml" />
     <Content Include="Views\AppRoles\Delete.cshtml" />
   </ItemGroup>
